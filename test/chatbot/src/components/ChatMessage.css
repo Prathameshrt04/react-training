@@ -1,0 +1,24 @@
+.user-message {
+  display: flex;
+  justify-content: end;
+  align-items: start;
+}
+
+.bot-message {
+  display: flex;
+  align-items: start;
+}
+
+.message {
+  background-color: rgb(177, 176, 176);
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  max-width: 300px;
+}
+
+.profile-img {
+  width: 45px;
+}

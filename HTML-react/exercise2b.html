@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>React Basics</title>
+</head>
+
+<body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+        function App() {
+            return (
+                <>
+                    <h1>Welcome to E-Commerce App</h1>
+                    <ProductDetails product_name="Cotton Socks" product_price="10.90" discounted_price="5.45" product_img="cotton-socks.png" />
+                    <ProductDetails product_name="Tennis Balls" product_price="6.00" product_img="tennis-balls.png" />
+                    <ProductDetails product_name="T-Shirt" product_price="7.99" product_img="plain-t-shirt.png" />
+                </>
+            );
+        }
+
+        function ProductDetails(props) {
+            const { product_name, product_price, discounted_price, product_img } = props;
+            return (
+                <div>
+                    <h3>{product_name}</h3>
+                    <img src={product_img} alt={product_name} width="90" height="90" />
+                    {discounted_price ? (<del><p>Price: ${product_price}</p></del>) : (<p>Price: ${product_price}</p>)}
+                    {discounted_price && (<p>Discounted Price: ${discounted_price}</p>)}
+                    <button>Add to Cart</button>
+                </div>
+            );
+        }
+
+        const container = document.querySelector('.js-container');
+        ReactDOM.createRoot(container).render(<App />);
+    </script>
+</body>
+
+</html>
