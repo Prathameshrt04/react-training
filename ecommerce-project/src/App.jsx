@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router'
-import { HomePage } from './pages/HomePage'
-import { OrdersPage } from './pages/OrdersPage'
+import { HomePage } from './pages/home/HomePage'
+import { OrdersPage } from './pages/orders/OrdersPage'
 import { TrackingPage } from './pages/TrackingPage'
 import { CheckoutPage } from './pages/checkout/CheckoutPage'
 import { useEffect, useState } from 'react'
