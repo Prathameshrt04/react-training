@@ -31,7 +31,7 @@ export function OrderSummary({cart, deliveryOptions}) {
                   </div>
                   <div className="product-quantity">
                     <span>
-                      Quantity: <span className="quantity-label">2</span>
+                      Quantity: <span className="quantity-label">{cartItem.quantity}</span>
                     </span>
                     <span className="update-quantity-link link-primary">
                       Update
