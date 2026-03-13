@@ -1,0 +1,78 @@
+.main-container {
+  margin: 20px;
+  padding: 10px;
+}
+
+.page-container {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 0.7fr 0.3fr;
+  grid-template-rows: 50px 1fr;
+  grid-template-areas:
+    "input          ad-btn "
+    "list-block     edit-delete-bts";
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-btn-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.to-do-input {
+  grid-area: "input";
+  margin: 5px 5px;
+  padding: 10px 15px;
+  border: 2px solid blueviolet;
+  border-radius: 5px;
+}
+
+.btn {
+  border: none;
+  background-color: blueviolet;
+  color: white;
+  margin: 5px 5px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-delete-bts-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-items-container {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #8a2be2;
+  border-radius: 5px;
+  margin: 5px 5px;
+  min-height: 350px;
+  max-height: 1vh;
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+.list-item {
+  color: white;
+  margin: 2px 2px;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.mark-btn{
+  margin-right: 9px;
+}
+
+.complete{
+  text-decoration: line-through;
+}
+
+button:disabled{
+  background-color: #c7a7e6;
+}
