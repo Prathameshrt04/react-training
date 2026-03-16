@@ -14,8 +14,7 @@ export function MainPage() {
   const [taskInInputField, setTaskInInputField] = useState("");
   const [helper, setHelper] = useState(true);
   const [selectedDiv, setSelectedDiv] = useState(null);
-    const [selectedTask, setSelectedTask] = useState(null);
-
+  const [selectedTask, setSelectedTask] = useState(null);
 
   function updateInputField(event) {
     setTaskInInputField(event.target.value);
@@ -64,7 +63,7 @@ export function MainPage() {
 
         <div className="add-btn-container ">
           <button
-            className="btn"
+            className="btn add-btn"
             onClick={setTaskInDB}
             disabled={taskInInputField ? false : true}
           >
@@ -75,27 +74,41 @@ export function MainPage() {
         <div className="list-items-container">
           {taskList &&
             taskList.map((tsk) => {
+              const taskStyle =
+                selectedDiv === tsk.taskId
+                  ? {
+                      backgroundColor: "#EEF2FF",
+                      border: "1px solid #6366F1",
+                      color: "#3730A3",
+                    }
+                  : tsk.isComplete
+                    ? {
+                        backgroundColor: "#ECFDF5",
+                        border: "1px solid #10B981",
+                        color: "#065F46",
+                        textDecoration: "line-through",
+                        textDecorationColor: "#10B981",
+                      }
+                    : {
+                        backgroundColor: "#F8FAFC",
+                        border: "1px solid #E2E8F0",
+                        color: "#1E293B",
+                      };
+
               return (
                 <div
                   key={tsk.taskId}
                   className={`list-item ${tsk.isComplete ? "complete" : "uncomplete"}`}
                   onClick={() => {
-                    if(selectedDiv === tsk.taskId){
+                    if (selectedDiv === tsk.taskId) {
                       setSelectedDiv(null);
-                      selectedTask(null)
+                      selectedTask(null);
                     } else {
                       setSelectedDiv(tsk.taskId);
-                      setSelectedTask(tsk)
+                      setSelectedTask(tsk);
                     }
                   }}
-                  style={{
-                    backgroundColor:
-                      selectedDiv === tsk.taskId
-                        ? " rgb(120, 33, 201)"
-                        : tsk.isComplete
-                          ? "rgb(90, 1, 134)"
-                          : "#b366fb",
-                  }}
+                  style={taskStyle}
                 >
                   <button
                     title={`Mark as ${tsk.isComplete ? "Uncomplete" : "Complete"}`}
@@ -112,27 +125,28 @@ export function MainPage() {
 
         <div className="edit-delete-bts-container">
           <button
-            className="btn"
+            className="btn edit-btn"
             disabled={selectedDiv ? false : true}
             onClick={() => {
               console.log(selectedTask);
-              
-                const editedTask = window.prompt("Enter task to edit or cancel to keep current task:");
-              if (editedTask ) {
-                updateTask(selectedDiv, editedTask)                
-              }
-              else
-                return;
-              
+
+              const editedTask = window.prompt(
+                "Enter task to edit or cancel to keep current task:",
+              );
+              if (editedTask) {
+                updateTask(selectedDiv, editedTask);
+              } else return;
             }}
           >
             Edit
           </button>
           <button
-            className="btn"
+            className="btn delete-btn"
             disabled={selectedDiv ? false : true}
-            onClick={()=>{
-              window.confirm("Nakki delete karych ahe???") ? deleteSelectedItem() : ""
+            onClick={() => {
+              window.confirm("Nakki delete karych ahe???")
+                ? deleteSelectedItem()
+                : "";
             }}
           >
             Delete

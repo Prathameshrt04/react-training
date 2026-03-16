@@ -24,21 +24,69 @@
 }
 
 .to-do-input {
+  color: #1E293B;
+  background-color: #FFFFFF;
   grid-area: "input";
   margin: 5px 5px;
   padding: 10px 15px;
-  border: 2px solid blueviolet;
+  border: 2px solid #CBD5E1;
   border-radius: 5px;
+}
+
+.to-do-input:focus {
+  outline: none;
+  border: 2px solid #6366F1;
+}
+
+.to-do-input::placeholder {
+  color: #94A3B8;
 }
 
 .btn {
   border: none;
-  background-color: blueviolet;
-  color: white;
   margin: 5px 5px;
   padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.add-btn{
+  background-color: #6366f1;
+  color: #FFFFFF;
+}
+
+.add-btn:hover{
+  background-color: #6366f1;
+}
+
+.add-btn:disabled{
+  background-color: #C7D2FE;
+}
+
+.edit-btn{
+  background-color: #0EA5E9;
+  color: #FFFFFF;
+}
+
+.edit-btn:hover{
+  background-color: #0284C7;
+}
+
+.edit-btn:disabled{
+  background-color: #99d3f1;
+}
+
+.delete-btn{
+  background-color: #EF4444;
+  color: #FFFFFF;
+}
+
+.delete-btn:hover{
+  background-color: #DC2626;
+}
+
+.delete-btn:disabled{
+  background-color: #F29999;
 }
 
 .edit-delete-bts-container {
@@ -47,9 +95,10 @@
 }
 
 .list-items-container {
+  background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
-  border: 2px solid #8a2be2;
+  border: 2px solid #E2E8F0;
   border-radius: 5px;
   margin: 5px 5px;
   min-height: 350px;

@@ -1,11 +1,13 @@
 .header-div{
     display: flex;
     justify-content: center;
-    background-color: beige;
+    background-color: #F1F5F9;
     border-radius: 20px;
+    
 }
 
 .header{
+    color: #1E293B;
     font-size: 30px;
     margin: 20px;
 }
