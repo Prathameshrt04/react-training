@@ -63,9 +63,18 @@ export function MainPage() {
 
         <div className="add-btn-container ">
           <button
+            className="btn delete-btn"
+            disabled={taskInInputField ? false : true}
+            onClick={()=>{
+              setTaskInInputField("");
+            }}
+          >
+            Clear
+          </button>
+          <button
             className="btn add-btn"
             onClick={setTaskInDB}
-            disabled={taskInInputField ? false : true}
+            disabled={taskInInputField.trim() ? false : true}
           >
             Add
           </button>
@@ -126,7 +135,7 @@ export function MainPage() {
         <div className="edit-delete-bts-container">
           <button
             className="btn edit-btn"
-            disabled={selectedDiv ? false : true}
+            disabled={selectedDiv && !selectedTask.isComplete ? false : true}
             onClick={() => {
               console.log(selectedTask);
 
