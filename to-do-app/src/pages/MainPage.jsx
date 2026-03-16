@@ -131,7 +131,9 @@ export function MainPage() {
           <button
             className="btn"
             disabled={selectedDiv ? false : true}
-            onClick={deleteSelectedItem}
+            onClick={()=>{
+              window.confirm("Nakki delete karych ahe???") ? deleteSelectedItem() : ""
+            }}
           >
             Delete
           </button>
