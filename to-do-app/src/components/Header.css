@@ -1,13 +1,24 @@
-.header-div{
-    display: flex;
-    justify-content: center;
-    background-color: #F1F5F9;
-    border-radius: 20px;
-    
+.header-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 2rem;
 }
 
-.header{
-    color: #1E293B;
-    font-size: 30px;
-    margin: 20px;
+.header {
+  color: #0f172a;
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+/* Responsive adjustment */
+@media (max-width: 480px) {
+  .header {
+    font-size: 1.25rem;
+  }
 }

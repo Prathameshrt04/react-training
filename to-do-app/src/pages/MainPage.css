@@ -1,128 +1,142 @@
+:root {
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+  --info: #0ea5e9;
+  --bg-main: #f8fafc;
+}
+
 .main-container {
-  margin: 20px;
-  padding: 10px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
 .page-container {
-  margin-top: 10px;
   display: grid;
-  grid-template-columns: 0.7fr 0.3fr;
-  grid-template-rows: 50px 1fr;
-  grid-template-areas:
-    "input          ad-btn "
-    "list-block     edit-delete-bts";
+  grid-template-columns: 1fr 200px;
+  gap: 20px;
 }
 
+/* Input Area */
 .input-container {
   display: flex;
   flex-direction: column;
 }
 
-.add-btn-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
-
 .to-do-input {
-  color: #1E293B;
-  background-color: #FFFFFF;
-  grid-area: "input";
-  margin: 5px 5px;
-  padding: 10px 15px;
-  border: 2px solid #CBD5E1;
-  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  background-color: white;
 }
 
 .to-do-input:focus {
   outline: none;
-  border: 2px solid #6366F1;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
 }
 
-.to-do-input::placeholder {
-  color: #94A3B8;
+/* Button Groups */
+.add-btn-container, .edit-delete-bts-container {
+  display: flex;
+  gap: 10px;
 }
 
-.btn {
-  border: none;
-  margin: 5px 5px;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.add-btn{
-  background-color: #6366f1;
-  color: #FFFFFF;
-}
-
-.add-btn:hover{
-  background-color: #6366f1;
-}
-
-.add-btn:disabled{
-  background-color: #C7D2FE;
-}
-
-.edit-btn{
-  background-color: #0EA5E9;
-  color: #FFFFFF;
-}
-
-.edit-btn:hover{
-  background-color: #0284C7;
-}
-
-.edit-btn:disabled{
-  background-color: #99d3f1;
-}
-
-.delete-btn{
-  background-color: #EF4444;
-  color: #FFFFFF;
-}
-
-.delete-btn:hover{
-  background-color: #DC2626;
-}
-
-.delete-btn:disabled{
-  background-color: #F29999;
+.add-btn-container {
+  justify-content: flex-start;
 }
 
 .edit-delete-bts-container {
-  display: flex;
   flex-direction: column;
 }
 
+/* Global Button Styles */
+.btn {
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.1s active, background 0.2s;
+  font-size: 0.9rem;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(0.5);
+}
+
+.add-btn { background: var(--primary); color: white; }
+.add-btn:hover:not(:disabled) { background: var(--primary-hover); }
+
+.edit-btn { background: var(--info); color: white; }
+.edit-btn:hover:not(:disabled) { background: #0284c7; }
+
+.delete-btn { background: var(--danger); color: white; }
+.delete-btn:hover:not(:disabled) { background: var(--danger-hover); }
+
+/* List Container */
 .list-items-container {
-  background-color: #FFFFFF;
-  display: flex;
-  flex-direction: column;
-  border: 2px solid #E2E8F0;
-  border-radius: 5px;
-  margin: 5px 5px;
-  min-height: 350px;
-  max-height: 1vh;
-  overflow: auto;
-  scrollbar-width: none;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  min-height: 400px;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding: 10px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .list-item {
-  color: white;
-  margin: 2px 2px;
-  padding: 10px 15px;
-  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding: 14px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
 }
 
-.mark-btn{
-  margin-right: 9px;
+.mark-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  margin-right: 12px;
+  cursor: pointer;
+  padding: 0;
 }
 
-.complete{
-  text-decoration: line-through;
-}
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .page-container {
+    grid-template-columns: 1fr; /* Stack everything into one column */
+  }
 
-button:disabled{
-  background-color: #c7a7e6;
+  .edit-delete-bts-container {
+    flex-direction: row; /* Horizontal buttons on mobile */
+    justify-content: center;
+    position: sticky;
+    bottom: 20px;
+    background: white;
+    padding: 10px;
+    border-radius: 50px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+
+  .edit-delete-bts-container .btn {
+    flex: 1;
+  }
 }
